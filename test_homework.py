@@ -1,4 +1,5 @@
 from math import pi
+import random
 
 def test_greeting():
     """
@@ -53,7 +54,7 @@ def test_random_list():
     Создайте список из 10 случайных чисел от 1 до 100 (включая обе границы) и отсортируйте его по возрастанию.
     """
     # TODO создайте список
-    l = []
+    l = sorted(random.sample(range(0, 100), 10))
 
     assert len(l) == 10
     assert all(l[i] <= l[i + 1] for i in range(len(l) - 1))
@@ -65,6 +66,7 @@ def test_unique_elements():
     """
     l = [1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 8, 9, 10, 10]
     # TODO удалите повторяющиеся элементы
+    l = list(set(l))
 
     assert isinstance(l, list)
     assert len(l) == 10
@@ -80,7 +82,7 @@ def test_dicts():
     first = ["a", "b", "c", "d", "e"]
     second = [1, 2, 3, 4, 5]
     # TODO создайте словарь
-    d = {}
+    d = dict(zip(first, second))
 
     assert isinstance(d, dict)
     assert len(d) == 5
